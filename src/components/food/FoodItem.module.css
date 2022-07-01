@@ -1,0 +1,43 @@
+.fooditem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.fooditem .price {
+  color: #b94517;
+  font-weight: bold;
+}
+
+.fooditem p {
+  margin: 8px 0;
+}
+
+.fooditem label {
+  font-weight: bold;
+  margin-right: 1rem;
+}
+
+.fooditem input {
+  width: 2rem;
+}
+
+.fooditem .button {
+  text-align: end;
+}
+
+.fooditem .button button {
+  background-color: #b94517;
+  color: white;
+  margin-top: 0.4rem;
+  padding: 0.25rem 2rem;
+  border-radius: 25px;
+  border: none;
+  font-weight: bold;
+}
+
+.fooditem .button button:hover {
+  cursor: pointer;
+  background-color: #92320c;
+}

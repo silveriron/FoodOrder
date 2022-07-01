@@ -1,19 +1,19 @@
 import style from "./Header.module.css";
+import img from "../../img/food.jpg";
+import HeaderCartButton from "./HeaderCartButton";
 
 const Header = () => {
   return (
     <>
       <header className={style.header}>
-        <div>
-          <a href="/">볼리레스토랑</a>
-        </div>
-        <div>
-          <button>
-            <span>장바구니</span>
-            <span>3</span>
-          </button>
-        </div>
+        <a href="/">
+          <h1>ReactMeals</h1>
+        </a>
+        <HeaderCartButton />
       </header>
+      <section className={style.headerImg}>
+        <img src={img}></img>
+      </section>
     </>
   );
 };

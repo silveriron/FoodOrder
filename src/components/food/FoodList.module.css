@@ -1,0 +1,9 @@
+.foodList {
+  max-width: 60rem;
+  width: 90%;
+  background-color: white;
+  margin: 2rem auto;
+  border-radius: 14px;
+  padding: 1rem 2rem;
+  box-sizing: border-box;
+}
