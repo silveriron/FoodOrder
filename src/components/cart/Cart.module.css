@@ -1,0 +1,46 @@
+.amount {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.orderButton {
+  text-align: end;
+}
+
+.close {
+  border: 1px solid #b94517;
+  border-radius: 16px;
+  background-color: white;
+  padding: 0.5rem 1rem;
+  color: #b94517;
+  margin-right: 0.5rem;
+}
+
+.order {
+  border: 1px solid white;
+  border-radius: 16px;
+  background-color: #b94517;
+  padding: 0.5rem 1rem;
+  color: white;
+}
+
+.close:hover {
+  cursor: pointer;
+  border: none;
+  border-radius: 16px;
+  background-color: #b94517;
+  padding: 0.5rem 1rem;
+  color: white;
+}
+
+.order:hover {
+  cursor: pointer;
+  border: 1px solid #b94517;
+  border-radius: 16px;
+  background-color: white;
+  padding: 0.5rem 1rem;
+  color: #b94517;
+}

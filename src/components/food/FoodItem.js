@@ -1,6 +1,20 @@
+import { useContext } from "react";
+import CartContext from "../../store/CartContext";
 import style from "./FoodItem.module.css";
 
 const FoodItem = ({ food }) => {
+  const ctx = useContext(CartContext);
+
+  const addCart = (e) => {
+    e.preventDefault();
+    const item = {
+      id: e.target.id.value,
+      name: food.name,
+      price: food.price,
+      amount: parseInt(e.target.amount.value, 10),
+    };
+    ctx.addItem(item);
+  };
   return (
     <div className={style.fooditem}>
       <div>
@@ -12,7 +26,7 @@ const FoodItem = ({ food }) => {
         </p>
         <p className={style.price}>{`$${food.price}`}</p>
       </div>
-      <form>
+      <form onSubmit={addCart}>
         <label htmlFor="amount">Amount</label>
         <input
           type="number"

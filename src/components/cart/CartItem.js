@@ -9,7 +9,7 @@ const CartItem = ({ item }) => {
             <b>{item.name}</b>
           </p>
           <span className={style.price}>{`$${item.price}`}</span>
-          <span className={style.amount}>{`x${item.amount}`}</span>
+          <span className={style.amount}>{`x ${item.amount}`}</span>
         </div>
         <div>
           <button>-</button>

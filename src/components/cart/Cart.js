@@ -1,20 +1,34 @@
 import CartItem from "./CartItem";
 import Modal from "../modal/Modal";
+import style from "./Cart.module.css";
+import { useContext } from "react";
+import CartContext from "../../store/CartContext";
 
-const Cart = () => {
-  const cartItem = [{ id: "m1", name: "sushi", amount: 1, price: 22.99 }].map(
-    (item) => {
-      return <CartItem key={item.id} item={item} />;
-    }
-  );
+const Cart = ({ closeModal }) => {
+  const ctx = useContext(CartContext);
+
+  const cartItem = ctx.items.map((item) => {
+    return <CartItem key={item.id} item={item} />;
+  });
+
+  let totalAmount = 0;
+
+  ctx.items.map((item) => {
+    totalAmount += item.amount * item.price;
+  });
+
   return (
-    <Modal>
+    <Modal closeModal={closeModal}>
       <ul>{cartItem}</ul>
-      <span>Total Amount</span>
-      <span>$22.99</span>
-      <div>
-        <button>Close</button>
-        <button>Order</button>
+      <div className={style.amount}>
+        <span>Total Amount</span>
+        <span>{`$${totalAmount.toFixed(2)}`}</span>
+      </div>
+      <div className={style.orderButton}>
+        <button onClick={closeModal} className={style.close}>
+          Close
+        </button>
+        <button className={style.order}>Order</button>
       </div>
     </Modal>
   );
