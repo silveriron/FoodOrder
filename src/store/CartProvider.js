@@ -25,6 +25,32 @@ const cartReducer = (state, action) => {
       totalAmount: nextTotalAmount,
     };
   }
+  if (action.type === "REMOVE") {
+    const items = state.items.map((item) => {
+      if (item.id === action.id) {
+        item.amount -= 1;
+      }
+      return item;
+    });
+    const nextItems = items.filter((item) => item.amount > 0);
+    return {
+      items: nextItems,
+      totalAmount: state.totalAmount - 1,
+    };
+  }
+  if (action.type === "AMOUNTUP") {
+    const nextItems = state.items.map((item) => {
+      if (item.id === action.id) {
+        item.amount += 1;
+      }
+      return item;
+    });
+    const nextTotalAmount = state.totalAmount + 1;
+    return {
+      items: nextItems,
+      totalAmount: nextTotalAmount,
+    };
+  }
   return defaultCart;
 };
 
@@ -36,7 +62,11 @@ const CartProvider = (props) => {
   };
 
   const removeItem = (id) => {
-    dispatchCart({ type: "ADD", id: id });
+    dispatchCart({ type: "REMOVE", id: id });
+  };
+
+  const itemAmountUp = (id) => {
+    dispatchCart({ type: "AMOUNTUP", id: id });
   };
 
   const cartContext = {
@@ -44,6 +74,7 @@ const CartProvider = (props) => {
     totalAmount: cartSate.totalAmount,
     addItem: addItem,
     removeItem: removeItem,
+    itemAmountUp: itemAmountUp,
   };
 
   return (

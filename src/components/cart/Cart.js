@@ -17,6 +17,11 @@ const Cart = ({ closeModal }) => {
     totalAmount += item.amount * item.price;
   });
 
+  const order = () => {
+    console.log("ordering...");
+    console.log(ctx.items);
+  };
+
   return (
     <Modal closeModal={closeModal}>
       <ul>{cartItem}</ul>
@@ -28,7 +33,9 @@ const Cart = ({ closeModal }) => {
         <button onClick={closeModal} className={style.close}>
           Close
         </button>
-        <button className={style.order}>Order</button>
+        <button onClick={order} className={style.order}>
+          Order
+        </button>
       </div>
     </Modal>
   );
