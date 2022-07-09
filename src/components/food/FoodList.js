@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 
 const FoodList = (props) => {
   const [foods, setFoods] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState();
   const { fetchApi } = useHttp();
 
   const CreateFoods = (data) => {
@@ -20,20 +22,40 @@ const FoodList = (props) => {
     }
 
     setFoods(foods);
+    setIsLoading(false);
   };
 
   useEffect(() => {
-    fetchApi(
-      {
-        url: "https://food-order-420fb-default-rtdb.firebaseio.com/foods.json",
-      },
-      CreateFoods
-    );
+    fetchApi({
+      url: "https://food-order-420fb-default-rtdb.firebaseio.com/foods.json",
+    })
+      .then((data) => CreateFoods(data))
+      .catch((error) => {
+        setIsLoading(false);
+        setError(error.message);
+      });
   }, [fetchApi]);
 
   const foodList = foods.map((food) => {
     return <FoodItem key={food.id} food={food} />;
   });
+
+  if (isLoading) {
+    return (
+      <section className={style.loading}>
+        <p>Now Loading...</p>
+      </section>
+    );
+  }
+
+  if (error) {
+    return (
+      <section className={style.error}>
+        <p>{error}</p>
+      </section>
+    );
+  }
+
   return <div className={style.foodList}>{foodList}</div>;
 };
 

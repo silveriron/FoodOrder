@@ -7,3 +7,15 @@
   padding: 1rem 2rem;
   box-sizing: border-box;
 }
+
+.loading {
+  text-align: center;
+  color: white;
+  margin: 2rem auto;
+}
+
+.error {
+  text-align: center;
+  color: red;
+  margin: 2rem auto;
+}
