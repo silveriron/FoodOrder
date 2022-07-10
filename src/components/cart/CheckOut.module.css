@@ -1,0 +1,55 @@
+.inputbox label {
+  display: block;
+  font-weight: bold;
+}
+
+.inputbox input {
+  height: 1.2rem;
+  width: 20vw;
+  border: 1px solid silver;
+}
+
+.inputbox p {
+  color: red;
+  margin-top: 0.1rem;
+  font-size: 0.8rem;
+}
+
+.orderButton {
+  text-align: end;
+}
+
+.close {
+  border: 1px solid #b94517;
+  border-radius: 16px;
+  background-color: white;
+  padding: 0.5rem 1rem;
+  color: #b94517;
+  margin-right: 0.5rem;
+}
+
+.order {
+  border: 1px solid white;
+  border-radius: 16px;
+  background-color: #b94517;
+  padding: 0.5rem 1rem;
+  color: white;
+}
+
+.close:hover {
+  cursor: pointer;
+  border: none;
+  border-radius: 16px;
+  background-color: #b94517;
+  padding: 0.5rem 1rem;
+  color: white;
+}
+
+.order:hover {
+  cursor: pointer;
+  border: 1px solid #b94517;
+  border-radius: 16px;
+  background-color: white;
+  padding: 0.5rem 1rem;
+  color: #b94517;
+}
